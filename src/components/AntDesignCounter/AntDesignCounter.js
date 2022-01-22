@@ -9,7 +9,7 @@ import {
   resetToZero,
 } from '../counter/counterSlice';
 import styles from '../counter/Counter.module.css';
-import {Styles} from './AntDesignCounter.styles';
+import {StyledCounter} from './AntDesignCounter.styles';
 
 import { Card, Button } from 'antd';
 
@@ -17,6 +17,7 @@ export function AntDesignCounter() {
   const count = useSelector(selectCount);
   const dispatch = useDispatch();
   const [incrementAmount, setIncrementAmount] = useState('2');
+  let isOdd = (((count / 2) != 1) && (count != 0)) ? true : false;
 
   return (
     <div>
@@ -28,9 +29,11 @@ export function AntDesignCounter() {
         >
           +
         </Button>
-        <Styles>
-          <span className={styles.value}>{count}</span>
-        </Styles>
+        <StyledCounter onChange={isOdd} isOdd={isOdd}>
+          <span className={styles.value}>
+            {count}
+          </span>
+        </StyledCounter>
         <Button
           className={styles.button}
           aria-label="Decrement value"
@@ -68,9 +71,6 @@ export function AntDesignCounter() {
           onClick={() => dispatch(resetToZero())}>
             Reset to 0
           </Button>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
         </Card>
       </div>
     </div>
