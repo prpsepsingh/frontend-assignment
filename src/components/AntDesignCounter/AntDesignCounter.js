@@ -20,21 +20,21 @@ export function AntDesignCounter() {
   return (
     <div>
       <div className={styles.row}>
-        <button
+        <Button
           className={styles.button}
           aria-label="Increment value"
           onClick={() => dispatch(increment())}
         >
           +
-        </button>
+        </Button>
         <span className={styles.value}>{count}</span>
-        <button
+        <Button
           className={styles.button}
           aria-label="Decrement value"
           onClick={() => dispatch(decrement())}
         >
           -
-        </button>
+        </Button>
       </div>
       <div className={styles.row}>
         <input
@@ -43,20 +43,23 @@ export function AntDesignCounter() {
           value={incrementAmount}
           onChange={e => setIncrementAmount(e.target.value)}
         />
-        <button
+        <Button
           className={styles.button}
           onClick={() =>
             dispatch(incrementByAmount(Number(incrementAmount) || 0))
           }
         >
           Add Amount
-        </button>
-        <button
+        </Button>
+        <Button
           className={styles.asyncButton}
           onClick={() => dispatch(incrementAsync(Number(incrementAmount) || 0))}
         >
           Add Async
-        </button>
+        </Button>
+      </div>
+      <div className={styles.row}>
+        
       </div>
     </div>
   );
