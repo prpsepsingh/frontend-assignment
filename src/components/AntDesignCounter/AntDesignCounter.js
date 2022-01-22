@@ -6,9 +6,10 @@ import {
   incrementByAmount,
   incrementAsync,
   selectCount,
+  resetToZero,
 } from '../counter/counterSlice';
 import styles from '../counter/Counter.module.css';
-// import styles from './AntDesignCounter.styles';
+import {Styles} from './AntDesignCounter.styles';
 
 import { Card, Button } from 'antd';
 
@@ -19,7 +20,7 @@ export function AntDesignCounter() {
 
   return (
     <div>
-      <div className={styles.row}>
+      <div>
         <Button
           className={styles.button}
           aria-label="Increment value"
@@ -27,7 +28,9 @@ export function AntDesignCounter() {
         >
           +
         </Button>
-        <span className={styles.value}>{count}</span>
+        <Styles>
+          <span className={styles.value}>{count}</span>
+        </Styles>
         <Button
           className={styles.button}
           aria-label="Decrement value"
@@ -59,7 +62,16 @@ export function AntDesignCounter() {
         </Button>
       </div>
       <div className={styles.row}>
-        
+        <Card title="Ant Design Counter" bordered={true} style={{ width: 300}}>
+          <Button
+          className={styles.button}
+          onClick={() => dispatch(resetToZero())}>
+            Reset to 0
+          </Button>
+          <p>Card content</p>
+          <p>Card content</p>
+          <p>Card content</p>
+        </Card>
       </div>
     </div>
   );

@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
-export const AntDesignCounter = styled.div`
-
+export const Styles = styled.div`
+  border: 1px;
+  font-size: 1em;
+  color: blue;
+  background-color: grey;
 `;
